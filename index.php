@@ -6,6 +6,6 @@
     <title>Contactify</title>
 </head>
 <body>
-    
+    <?php  echo "AAmir";?>
 </body>
 </html>
