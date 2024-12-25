@@ -1,1 +1,18 @@
-<?php echo"dashboard"; ?>
+<?php 
+class Contact{
+
+
+
+
+
+    
+}
+
+
+
+
+
+
+
+
+?>

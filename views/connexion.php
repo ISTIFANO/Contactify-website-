@@ -4,8 +4,7 @@ require_once '../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
-class DatabaseConfiguration
-{
+class DatabaseConfiguration{
 
     protected $connexion;
     private $hostname;
@@ -39,5 +38,5 @@ class DatabaseConfiguration
         return $this->connexion;
     }
 }
-$test = new DatabaseConfiguration();
-$test->connect();
+$con = new DatabaseConfiguration();
+$con->connect();
