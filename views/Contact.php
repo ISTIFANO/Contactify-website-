@@ -1,6 +1,8 @@
-<?php 
-class Contact {
+<?php
 
+include("./Crud.php");
+
+class Contact extends Crud {
     private $name;
     private $prenom;
     private $phone;
@@ -28,13 +30,21 @@ class Contact {
     public function getEmail() {
         return $this->email;
     }
+
+    public function setEmail($email) {
+        $this->email = $email;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    public function setPhone($phone) {
+        $this->phone = $phone;
+    }
+
+    public function setPrenom($prenom) {
+        $this->prenom = $prenom;
+    }
 }
-
-$newobj = new Contact("dsnjis", "jdhsu", 5356364, "jjsjnnd");
-
-
-echo "Name: " . $newobj->getName() . "\n";
-echo "Prenom: " . $newobj->getPrenom() . "\n";
-echo "Phone: " . $newobj->getPhone() . "\n";
-echo "Email: " . $newobj->getEmail() . "\n";
 ?>
