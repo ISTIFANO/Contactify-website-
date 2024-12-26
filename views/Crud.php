@@ -25,7 +25,7 @@ class Crud extends Contact
     public function SupprimerContact($rid)
     {
         
-        $query = "delete from tblusers where id=$rid";
+        $query = "delete from user where id=$rid";
 
         $result = $this->connection->query($query);
         return $result;
