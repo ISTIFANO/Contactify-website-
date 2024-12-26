@@ -29,7 +29,7 @@ class DatabaseConfiguration{
             try {
                 self::$connexion = new PDO($info, self::$user, self::$password);
         if (self::$connexion) {
-                    // echo "<h1>Connected to the self::database database successfully!</h1>";
+                    //  echo "<h1>Connected succ!</h1>";
                 }
             } catch (PDOException $e) {
                 echo $e->getMessage();
