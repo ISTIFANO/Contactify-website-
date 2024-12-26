@@ -7,7 +7,7 @@ class Crud extends Contact
 {
     public $connection;
      public function __construct(){
-        $this->connection= (new DatabaseConfiguration())->connect();
+         $this->connection= (new DatabaseConfiguration())::connect();
      }
 
     public function AjouterContact($nom, $prenom, $email, $telephone)

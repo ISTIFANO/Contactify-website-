@@ -1,6 +1,6 @@
 <?php 
 
-namespace 'script\Regex';
+// namespace 'script\Regex';
 
 class Regex{
 
