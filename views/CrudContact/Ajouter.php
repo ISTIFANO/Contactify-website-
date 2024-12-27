@@ -14,7 +14,7 @@ $phone = $_POST['phone'];
 // echo$name;
 if (isset($_POST['name'], $_POST['lastname'], $_POST['email'], $_POST['phone'])) {
 
-$contact = new Contact($name, $lastname, $phone, $email);
+$contact = new Contact(NULL,$name, $lastname, $phone, $email);
 
 $crud = new Crud();  
 $resultat = $crud->AjouterContact($contact->getName(), $contact->getPrenom(), $contact->getEmail(), $contact->getPhone());

@@ -4,11 +4,15 @@ include("./Crud.php");
 
 class Contact extends Crud {
     private $name;
+    private $id;
+
     private $prenom;
     private $phone;
     private $email;
 
-    public function __construct($name, $prenom, $phone, $email) {
+    public function __construct($id,$name, $prenom, $phone, $email) {
+        $this->id = $id;
+
         $this->name = $name;
         $this->prenom = $prenom;
         $this->phone = $phone;
@@ -26,7 +30,13 @@ class Contact extends Crud {
     public function getPhone() {
         return $this->phone;
     }
+    public function getId() {
+        return $this->id;
+    }
 
+    public function setId($id) {
+        $this->id =$id;
+    }
     public function getEmail() {
         return $this->email;
     }

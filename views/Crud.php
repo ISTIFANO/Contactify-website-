@@ -1,35 +1,39 @@
 <?php
-include("./connexion.php");
 
 class Crud {
     public $connection;
-
+    
     public function __construct() {
-        $this->connection= (new DatabaseConfiguration())::connect();
+        $this->connection = (new DatabaseConfiguration())::connect();
     }
+    
+    public function AjouterContact($nom, $prenom, $telephone, $email) {
 
-    public function AjouterContact($nom, $prenom, $telephone,$email) {
-        $query = "insert into Contacts VALUES('$nom','$prenom','$email',$telephone)";
-        $result = $this->connection->query($query);
-        return $result;
+        $query = $this->connection->prepare("INSERT INTO contacts (nom, prenom, email, telephone) VALUES (?, ?, ?, ?)");
+        $query->bind_param("ssss", $nom, $prenom, $email, $telephone);
+        
+        return $query->execute();
     }
-
+    
     public function ModifierContact($name, $lname, $email, $contactnb, $userid) {
-        $query = ("update Contacts set nom='$name',prenom='$lname',email='$email',telephone='$contactnb' where id='$userid' ");
-        $result = $this->connection->query($query);
-        return $result;
+
+    $query = $this->connection->prepare("UPDATE contacts SET nom=?, prenom=?, email=?, telephone=? WHERE id=?");
+        $query->bind_param("ssssi", $name, $lname, $email, $contactnb, $userid);
+        return $query->execute();
     }
+    
 
     public function SupprimerContact($rid) {
-        $query = "delete from tblusers where id=$rid";
-        $result = $this->connection->query($query);
-        return $result;
+        $query = $this->connection->prepare("DELETE FROM contacts WHERE id=?");
+      $query->bind_param("i", $rid);
+        return $query->execute();
     }
-
+    
     public function ListerContact() {
-        $query = "select *from contact";
-        $result = $this->connection->query($query);
-        return $result;
+        $query = "SELECT * FROM contacts";
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
+        return $stmt;
     }
 }
 ?>
